@@ -1,29 +1,26 @@
-''' Simulator for ACM Multimedia 2019 Live Video Streaming Challenge
-    Author Dan Yang
-    Time 2019-01-31
-'''
 # import the env 
 import fixed_env as fixed_env
 import load_trace as load_trace
 #import matplotlib.pyplot as plt
 import time as tm
 import ABR
-import os
+import os, sys
+import numpy as np
+import multiprocessing as mp
 
-def test(user_id):
+def test(testcase):
 
     # -- Configuration variables --
     # Edit these variables to configure the simulator
+    # Change which set of video trace to use: AsianCup_China_Uzbekistan, Fengtimo_2018_11_3, game, room, sports, YYF_2018_08_12
+    VIDEO_TRACE = testcase[0]
 
     # Change which set of network trace to use: 'fixed' 'low' 'medium' 'high'
-    NETWORK_TRACE = 'fixed'
-
-    # Change which set of video trace to use.
-    VIDEO_TRACE = 'AsianCup_China_Uzbekistan'
+    NETWORK_TRACE = testcase[1]
 
     # Turn on and off logging.  Set to 'True' to create log files.
     # Set to 'False' would speed up the simulator.
-    DEBUG = False
+    DEBUG = testcase[2]
 
     # Control the subdirectory where log files will be stored.
     LOG_FILE_PATH = './log/'
@@ -199,7 +196,7 @@ def test(user_id):
             # -------------------- End --------------------------------
             
         if end_of_video:
-            print("network traceID, network_reward, avg_running_time", trace_count, reward_all, call_time_sum/cnt)
+            # print("network traceID, network_reward, avg_running_time", trace_count, reward_all, call_time_sum/cnt)
             reward_all_sum += reward_all
             run_time += call_time_sum / cnt
             if trace_count >= len(all_file_names):
@@ -226,8 +223,35 @@ def test(user_id):
             S_cdn_flag = [0] * past_frame_num
             
         reward_all += reward_frame
-
+    print(f"{VIDEO_TRACE},{NETWORK_TRACE}: Done")
     return [reward_all_sum / trace_count, run_time / trace_count]
 
-a = test("aaa")
-print(a)
+if __name__ == "__main__":
+    if(sys.argv[1]=="all"):
+        video_traces = [
+            'AsianCup_China_Uzbekistan',
+            'Fengtimo_2018_11_3', 
+            'game', 
+            'room', 
+            'sports', 
+            'YYF_2018_08_12'
+        ]
+        netwrok_traces = [
+            'fixed',
+            'low',
+            'medium',
+            'high'
+        ]
+    else:
+        video_traces = [sys.argv[1]]
+        netwrok_traces = [sys.argv[2]]
+    debug = False
+    testcases = []
+    for video_trace in video_traces:
+        for netwrok_trace in netwrok_traces:
+            testcases.append([video_trace, netwrok_trace, debug])
+    N = mp.cpu_count()
+    with mp.Pool(processes=N) as p:
+        results = p.map(test,testcases)
+    print(results)
+    print("score: ", np.mean(results ,axis = 0))

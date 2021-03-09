@@ -42,5 +42,3 @@ def run(self, time, S_time_interval, S_send_data_size, S_chunk_len, S_rebuf, S_b
          return bit_rate, target_buffer, latency_limit
 ```
 
-# Import package
-* If you want to add some site package ,please concact bupt-steven@foxmail.com

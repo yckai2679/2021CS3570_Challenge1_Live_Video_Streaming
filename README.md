@@ -1,10 +1,10 @@
-# ACM Multimedia 2019 Grand Challenge: Live Video Streaming
+# Grand Challenge: Live Video Streaming
 
-This repository contains the simulator code being used for ACM Multimedia 2019 Live Video Streaming.  The simulator is a frame-level DASH video streaming simulator with a pluggable client module for bitrate control and latency control.
+This repository contains the simulator code being used for Live Video Streaming.  The simulator is a frame-level DASH video streaming simulator with a pluggable client module for bitrate control and latency control.
 
 ## Files
 
-![Image text](https://github.com/NGnetLab/Live-Video-Streaming-Challenge/blob/master/幻灯片1.gif)
+![Image text](https://github.com/tse-hou/Live-Video-Streaming-Challenge/blob/master/architecture.gif)
 
 The simulator contains the following files:
 
@@ -52,47 +52,51 @@ You will need Python 3 to run the simulator.
 To run the simulator, you execute
 
 ```
-python run.py
+python run.py all
 ```
 
 The given default code should produce something like the following:
 
 ```
-network traceID, network_reward, avg_running_time 1 641.1484318760413 2.7569223579257976e-06
-network traceID, network_reward, avg_running_time 2 985.7361064180305 1.569810351953533e-06
-network traceID, network_reward, avg_running_time 3 1434.0326303686352 1.506220995549704e-06
-network traceID, network_reward, avg_running_time 4 909.2318048157695 1.5385812629050623e-06
-network traceID, network_reward, avg_running_time 5 635.4616496246817 2.8796182701514625e-06
-network traceID, network_reward, avg_running_time 6 1019.0324002078656 3.573290152802109e-06
-network traceID, network_reward, avg_running_time 7 991.7406496996467 4.670511970121271e-06
-network traceID, network_reward, avg_running_time 8 1055.3980756167875 3.7547605615472396e-06
-network traceID, network_reward, avg_running_time 9 -163.7251464104959 3.7670135498046877e-06
-network traceID, network_reward, avg_running_time 10 460.11141008945896 1.8877298097065138e-06
-network traceID, network_reward, avg_running_time 11 1586.2008041285537 1.5093755589222177e-06
-network traceID, network_reward, avg_running_time 12 1028.6844963417639 1.4955950978738685e-06
-network traceID, network_reward, avg_running_time 13 1021.9785822724941 1.5320970756073211e-06
-network traceID, network_reward, avg_running_time 14 963.8776511160278 2.4441224950933854e-06
-network traceID, network_reward, avg_running_time 15 81.1547975421813 3.175536099211264e-06
-network traceID, network_reward, avg_running_time 16 -19.11784167374209 2.672614120855564e-06
-network traceID, network_reward, avg_running_time 17 1202.1056307541305 2.4344927753246596e-06
-network traceID, network_reward, avg_running_time 18 442.34703880371285 3.3536329242844434e-06
-network traceID, network_reward, avg_running_time 19 1009.585542619389 2.43250041951044e-06
-network traceID, network_reward, avg_running_time 20 -307.0479419414425 2.85270988858062e-06
-[748.8968386134745, 2.5903567868865584e-06]
+YYF_2018_08_12,low: Done
+game,fixed: Done
+game,low: Done
+room,low: Done
+AsianCup_China_Uzbekistan,low: Done
+Fengtimo_2018_11_3,low: Done
+Fengtimo_2018_11_3,fixed: Done
+room,medium: Done
+Fengtimo_2018_11_3,medium: Done
+game,medium: Done
+AsianCup_China_Uzbekistan,fixed: Done
+YYF_2018_08_12,fixed: Done
+sports,fixed: Done
+room,fixed: Done
+AsianCup_China_Uzbekistan,medium: Done
+sports,low: Done
+YYF_2018_08_12,medium: Done
+sports,medium: Done
+AsianCup_China_Uzbekistan,high: Done
+game,high: Done
+YYF_2018_08_12,high: Done
+Fengtimo_2018_11_3,high: Done
+sports,high: Done
+room,high: Done
+[[1003.0643755032955, 1.4848107451463873e-06], [1468.1899223244538, 1.4225835587652947e-06], [1515.4896973625787, 1.4499867526933675e-06], [1535.3410570279666, 1.3545695121573868e-06], [996.4359586392395, 1.5619065521992875e-06], [1360.1296820536336, 1.6087132511847381e-06], [1634.203817372895, 1.5164349390184837e-06], [1944.3635834321335, 1.6719062312119671e-06], [962.1517246733974, 1.4780837156406462e-06], [1391.4320800027003, 1.6092656549056967e-06], [1632.4709275956995, 1.5909295776093931e-06], [1862.3119642996699, 1.5455924096654674e-06], [1022.4077588924314, 1.6270570546929787e-06], [1399.8878565939472, 1.6120530396826196e-06], [1647.239833065784, 1.4675038108408778e-06], [1867.1238357565812, 1.645161480200095e-06], [918.3925549314956, 1.451731368019917e-06], [1268.203516951356, 1.443557658036437e-06], [1303.9777877439697, 1.379908865609856e-06], [1324.7899687878103, 1.391296779288731e-06], [963.301917210777, 1.6739684119299014e-06], [1415.9670930158863, 1.4867778805828403e-06], [1619.5561920445957, 1.8365560589165313e-06], [1846.2505164302045, 1.674857947344337e-06]]
+[1.41261182e+03 1.54105055e-06]
 
 ```
 
-The output above shows the resulting QoE value and your ABR algorithm's average running time for each of the 20 runs, each using a different network trace.  The last line shows the average QoE and average running time for all 20 runs.
-
 ## Configuring the Simulator
 
-Participants can configure the simulator by editing `run.py` and set the following parameters.
+* run all video_trace and network_trace
+```
+python run.py all
+```
 
-* To change the video trace used in the simulation, you can change the variable `VIDEO_TRACE`.  The default `VIDEO_TRACE` is set to `AsianCup_China_Uzbekistan`.  Other possibilities are: `Fengtimo_2018_11_3`, `YYF_2018_08_12`, `game`, `room`, and `sports`.
-
-* To change the network trace used in the simulation, you can change the variable `NETWORK_TRACE`.  The default `NETWORK_TRACE` can be set to `fixed`, `high`, `medium`, or `low`.
+* run specific video_trace and network_trace
+```
+python run.py [video_trace] [network_trace]
+```
 
 * The simulator can produce detailed log files for debugging.  To turn this on, set the variable `DEBUG` to `True`.  By default, the logs will be written to a sub-directory called `log`.  This log directory can be changed by setting the `LOG_FILE_PATH` variable.  Note that you may want to set `DEBUG` to `False` if you are training an AI model as large volume of data may be written to disk when logging is on.
-
- 
-              
