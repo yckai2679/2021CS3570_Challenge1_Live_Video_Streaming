@@ -172,6 +172,9 @@ def test(testcase):
             # if the buffer is enough ,choose the high quality
             # if the buffer is danger, choose the low  quality
             # if there is no rebuf ,choose the low target_buffer
+            # bit_rate: {500, 850, 1200, 1850} kbps
+            # Target Buffer: {0,1} (determine the quick_play_bound and slow_play_bound of plackback mechanism)
+            # Latency Threshold: [0,] (when latency exceed the threshold, the client skip frames and request to download next I-frame)
             cnt += 1
             timestamp_start = tm.time()
             bit_rate, target_buffer, latency_limit = abr.run(time,
