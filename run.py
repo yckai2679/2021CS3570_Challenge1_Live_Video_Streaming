@@ -9,7 +9,7 @@ import numpy as np
 import multiprocessing as mp
 
 def test(testcase):
-
+    
     # -- Configuration variables --
     # Edit these variables to configure the simulator
     # Change which set of video trace to use: AsianCup_China_Uzbekistan, Fengtimo_2018_11_3, game, room, sports, YYF_2018_08_12
@@ -29,6 +29,7 @@ def test(testcase):
     if not os.path.exists(LOG_FILE_PATH):
         os.makedirs(LOG_FILE_PATH)
 
+    print(f"{VIDEO_TRACE},{NETWORK_TRACE}: Start")
     # -- End Configuration --
     # You shouldn't need to change the rest of the code here.
 

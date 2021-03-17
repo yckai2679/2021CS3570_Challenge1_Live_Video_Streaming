@@ -58,32 +58,56 @@ python run.py all
 The given default code should produce something like the following:
 
 ```
-YYF_2018_08_12,low: Done
-game,fixed: Done
+AsianCup_China_Uzbekistan,fixed: Start
+AsianCup_China_Uzbekistan,low: Start
+AsianCup_China_Uzbekistan,high: Start
+AsianCup_China_Uzbekistan,medium: Start
+Fengtimo_2018_11_3,fixed: Start
+Fengtimo_2018_11_3,low: Start
+Fengtimo_2018_11_3,medium: Start
+Fengtimo_2018_11_3,high: Start
+game,fixed: Start
+game,low: Start
+game,medium: Start
+game,high: Start
+room,fixed: Start
+room,low: Start
+room,medium: Start
+room,high: Start
+sports,fixed: Start
+sports,medium: Start
+sports,low: Start
+sports,high: Start
+YYF_2018_08_12,fixed: Start
+YYF_2018_08_12,medium: Start
+YYF_2018_08_12,low: Start
+YYF_2018_08_12,high: Start
 game,low: Done
-room,low: Done
-AsianCup_China_Uzbekistan,low: Done
-Fengtimo_2018_11_3,low: Done
-Fengtimo_2018_11_3,fixed: Done
+YYF_2018_08_12,medium: Done
+room,fixed: Done
 room,medium: Done
-Fengtimo_2018_11_3,medium: Done
 game,medium: Done
 AsianCup_China_Uzbekistan,fixed: Done
-YYF_2018_08_12,fixed: Done
-sports,fixed: Done
-room,fixed: Done
-AsianCup_China_Uzbekistan,medium: Done
-sports,low: Done
-YYF_2018_08_12,medium: Done
+game,fixed: Done
+Fengtimo_2018_11_3,fixed: Done
+YYF_2018_08_12,low: Done
+Fengtimo_2018_11_3,medium: Done
+Fengtimo_2018_11_3,low: Done
+room,low: Done
 sports,medium: Done
+sports,fixed: Done
+sports,low: Done
 AsianCup_China_Uzbekistan,high: Done
-game,high: Done
-YYF_2018_08_12,high: Done
 Fengtimo_2018_11_3,high: Done
-sports,high: Done
+AsianCup_China_Uzbekistan,medium: Done
+YYF_2018_08_12,fixed: Done
 room,high: Done
-[[1003.0643755032955, 1.4848107451463873e-06], [1468.1899223244538, 1.4225835587652947e-06], [1515.4896973625787, 1.4499867526933675e-06], [1535.3410570279666, 1.3545695121573868e-06], [996.4359586392395, 1.5619065521992875e-06], [1360.1296820536336, 1.6087132511847381e-06], [1634.203817372895, 1.5164349390184837e-06], [1944.3635834321335, 1.6719062312119671e-06], [962.1517246733974, 1.4780837156406462e-06], [1391.4320800027003, 1.6092656549056967e-06], [1632.4709275956995, 1.5909295776093931e-06], [1862.3119642996699, 1.5455924096654674e-06], [1022.4077588924314, 1.6270570546929787e-06], [1399.8878565939472, 1.6120530396826196e-06], [1647.239833065784, 1.4675038108408778e-06], [1867.1238357565812, 1.645161480200095e-06], [918.3925549314956, 1.451731368019917e-06], [1268.203516951356, 1.443557658036437e-06], [1303.9777877439697, 1.379908865609856e-06], [1324.7899687878103, 1.391296779288731e-06], [963.301917210777, 1.6739684119299014e-06], [1415.9670930158863, 1.4867778805828403e-06], [1619.5561920445957, 1.8365560589165313e-06], [1846.2505164302045, 1.674857947344337e-06]]
-[1.41261182e+03 1.54105055e-06]
+AsianCup_China_Uzbekistan,low: Done
+YYF_2018_08_12,high: Done
+game,high: Done
+sports,high: Done
+[[1003.0643755032955, 1.9479399923825436e-06], [1468.1899223244538, 2.6868329406780786e-06], [1515.4896973625787, 2.2991288007135838e-06], [1535.3410570279666, 2.679303495996842e-06], [996.4359586392395, 2.47624286579198e-06], [1360.1296820536336, 2.5919058099186546e-06], [1634.203817372895, 2.192868066774833e-06], [1944.3635834321335, 2.025828069570113e-06], [962.1517246733974, 2.6871058158121116e-06], [1391.4320800027003, 2.459983321487817e-06], [1632.4709275956995, 2.6005579382470035e-06], [1862.3119642996699, 2.2600745894218404e-06], [1022.4077588924314, 2.7316122010381435e-06], [1399.8878565939472, 2.6031690445944086e-06], [1647.239833065784, 2.6443942648465522e-06], [1867.1238357565812, 2.3751636671889677e-06], [918.3925549314956, 2.2861276057325095e-06], [1268.203516951356, 2.0833536612386818e-06], [1303.9777877439697, 2.7589547541058594e-06], [1324.7899687878103, 2.7192239646288926e-06], [963.301917210777, 2.6875973646716527e-06], [1415.9670930158863, 2.6465205031324433e-06], [1619.5561920445957, 2.696355642315498e-06], [1846.2505164302045, 2.6341100208094863e-06]]
+score:  [1.41261182e+03 2.49059810e-06]
 
 ```
 
@@ -100,3 +124,8 @@ python run.py [video_trace] [network_trace]
 ```
 
 * The simulator can produce detailed log files for debugging.  To turn this on, set the variable `DEBUG` to `True`.  By default, the logs will be written to a sub-directory called `log`.  This log directory can be changed by setting the `LOG_FILE_PATH` variable.  Note that you may want to set `DEBUG` to `False` if you are training an AI model as large volume of data may be written to disk when logging is on.
+
+## Reference
+- Website: https://www.aitrans.online/MMGC/
+- Paper of simulator: https://dl.acm.org/doi/abs/10.1145/3343031.3356083
+- Paper of others ABR for Live video streaming: https://dl.acm.org/doi/proceedings/10.1145/3343031#heading39
