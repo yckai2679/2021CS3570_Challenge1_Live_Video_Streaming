@@ -246,6 +246,18 @@ if __name__ == "__main__":
             'medium',
             'high'
         ]
+    elif (sys.argv[1] == 'test'):
+        video_traces = [
+            'game', 
+            'room', 
+            'sports'
+        ]
+        netwrok_traces = [
+            'fixed',
+            'low',
+            'medium',
+            'high'
+        ]
     else:
         video_traces = [sys.argv[1]]
         netwrok_traces = [sys.argv[2]]
